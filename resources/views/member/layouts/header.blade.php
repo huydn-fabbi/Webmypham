@@ -3,7 +3,7 @@
       <!-- Classy Menu -->
       <nav class="classy-navbar" id="essenceNav">
         <!-- Logo -->
-        <a class="nav-brand" href="/home"><img src="{{ asset('img/core-img/logo.png') }}" alt=""></a>
+        <a class="nav-brand" href="/home"><span>Mỹ Phẩm Mỹ Hạnh</span></a>
         <!-- Navbar Toggler -->
         <div class="classy-navbar-toggler">
           <span class="navbarToggler"><span></span><span></span><span></span></span>
@@ -19,7 +19,7 @@
             <ul>
               <li>
                 <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Category
+                    Danh Mục
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: 100px;">
                   @foreach($category as $ca)
@@ -29,7 +29,7 @@
               </li>
               <li style="margin-left:8px">
                 <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Brand
+                    Nhãn Hàng
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: 100px;">
                   @foreach($brand as $br)
@@ -37,8 +37,8 @@
                   @endforeach
                 </div>
               </li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="blog.html">Bài Viết</a></li>
+                <li><a href="contact.html">Liên Hệ</a></li>
             </ul>
           </div>
             <!-- Nav End -->
@@ -50,24 +50,24 @@
         <!-- Search Area -->
         <div class="search-area">
           <form action="{{ route('search') }}" method="get">
-              <input type="search" name="keyword" id="headerSearch" placeholder="Type for search">
+              <input type="search" name="keyword" id="headerSearch" placeholder="Nhập Tìm Kiếm">
               <button style="cursor: pointer" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
           </form>
         </div>
         <!-- Favourite Area -->
-        @if (Auth::check())
+        @if (Auth::guest())
           <div class="favourite-area">
-            <a href="#"><span style="font-size:15px; position:initial">{{ Auth::user()->name }}</span></a>
+            <a style="width: 100px" href="{{ route('login') }}"><span style="font-size:15px; position:initial">Đăng Nhập <i class="fa fa-sign-in"></i></span></a>
           </div>
           <div class="user-login-info">
-            <a href="#"><span style="font-size:15px; position:initial">Logout<i class="fas fa-sign-out"></i></span></a>
+            <a style="width: 100px" href="{{ route('register') }}"><span style="font-size:15px; position:initial">Đăng Ký <i class="fa fa-user-plus"></i></span></a>
           </div>
         @else
           <div class="favourite-area">
-            <a href="#"><span style="font-size:15px; position:initial">Login <i class="fa fa-sign-in"></i></span></a>
+            <a href=""><span style="font-size:15px; position:initial">{{ Auth::user()->name }}</span></a>
           </div>
           <div class="user-login-info">
-            <a style="width: 100px" href="#"><span style="font-size:15px; position:initial">Register <i class="fa fa-user-plus"></i></span></a>
+            <a href="{{ route('logout') }}"><span style="font-size:15px; position:initial">Logout<i class="fas fa-sign-out"></i></span></a>
           </div>
         @endif
           <!-- Cart Area -->

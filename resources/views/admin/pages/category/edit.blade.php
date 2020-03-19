@@ -27,7 +27,7 @@
                                     
                                     <div class="row">
                                         <div class="col-md-1">
-                                            <button type="submit" class="btn btn-warning">Xóa</button>
+                                            <button type="submit" class="btn btn-danger">Xóa</button>
                                         </div>
                                         <div class="col-md-11">
                                             <button type="submit" class="btn btn-success pull-right">Cập Nhật</button>

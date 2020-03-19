@@ -22,7 +22,7 @@ class PageController extends BaseController
         view()->share('brand', $brand);
     }
 
-    public function getHotProduct()
+    public function getHome()
     {   
         $hotProduct = Product::select(
             'products.*',
@@ -40,7 +40,23 @@ class PageController extends BaseController
             }
         });
         
-        return view('member.pages.home', compact('hotProduct'));
+        $newProduct = Product::select(
+            'products.*',
+            'categories.category_name')
+            ->join('categories', 'categories.category_id', '=', 'products.category_id')
+            ->where('product_type', 2)
+            ->with('image_paths')
+            ->limit(6)->get();
+        $newProduct->map(function($value) {
+            $imagePath = $value->image_paths->first();
+            if (isset($imagePath)) {
+                $value['image_url'] = $imagePath->image_url;
+            } else {
+                $value['image_url'] = '';
+            }
+        });
+
+        return view('member.pages.home', compact('hotProduct', 'newProduct'));
     }
 
     public function getProductPageByCategory($id)
@@ -97,7 +113,8 @@ class PageController extends BaseController
 
     public function getProductDetail($id)
     {
-        $product = Product::select('products.*', 'categories.category_name', 'brands.brand_name')
+        $product = Product::select('products.*', 'categories.category_name', 'brands.brand_name', 'promotions.discount')
+            ->join('promotions', 'promotions.promotion_id', '=', 'products.promotion_id')
             ->join('categories', 'categories.category_id', '=', 'products.category_id')
             ->join('brands', 'brands.brand_id', '=', 'products.brand_id')->where('products.product_id', $id)->with('image_paths')->first();
 
@@ -132,18 +149,32 @@ class PageController extends BaseController
 
     public function postLogin(Request $request)
     {
-        if(Auth::attempt(['email' => $request->email, 'password' => $request->password]))
-        {   
-    		return redirect(route('home'));
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password], true))
+        {
+    		$user = Auth::user();
+            if($user->member_type == 3)
+            {   
+                return redirect(route('home'));      
+            } else 
+            {
+                return redirect(route('listCat'));
+            }
         } else 
         { 
     		return redirect(route('login'))->with('message', 'Login fail!');
     	}
     }
 
+    public function getLogout()
+    {
+        Auth::logout();
+
+    	return redirect(route('home'));
+    }
+
     public function getSignup()
     {
-        return view('member.pages.signup');
+        return view('member.pages.register');
     }
 
     public function postSignup(Request $request)

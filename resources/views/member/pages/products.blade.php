@@ -38,7 +38,7 @@
                                 <ul id="menu-content2" class="menu-content collapse show">
                                     <!-- Single Item -->
                                     <li data-toggle="collapse" data-target="#clothing">
-                                        <h6 style="cursor: pointer" class="widget-title mb-30">Catagories</h6>
+                                        <h6 style="cursor: pointer" class="widget-title mb-30">Danh Mục</h6>
                                         <ul class="sub-menu collapse show" id="clothing">
                                             @foreach ($categories as $ca)
                                             <li><a href="{{ route('category', $ca->category_id) }}">{{$ca->category_name}}</a></li>
@@ -46,7 +46,7 @@
                                         </ul>
                                     </li>
                                     <li data-toggle="collapse" data-target="#clothing">
-                                        <h6 style="cursor: pointer" class="widget-title mb-30">Brands</h6>
+                                        <h6 style="cursor: pointer" class="widget-title mb-30">Nhãn Hàng</h6>
                                         <ul class="sub-menu collapse show" id="clothing">
                                             @foreach ($brands as $br)
                                             <li><a href="{{ route('brand', $br->brand_id) }}">{{$br->brand_name}}</a></li>
@@ -66,10 +66,10 @@
                                 <div class="product-topbar d-flex align-items-center justify-content-between">
                                     <!-- Total Products -->
                                     <div class="total-products">
-                                        <p><span>{{ $productCount }}</span> products found</p>
+                                        <p><span>{{ $productCount }}</span> Sản Phẩm</p>
                                     </div>
                                     <!-- Sorting -->
-                                    <div class="product-sorting d-flex">
+                                    <!-- <div class="product-sorting d-flex">
                                         <p>Sort by:</p>
                                         <form action="#" method="get">
                                             <select name="select" id="sortByselect">
@@ -80,7 +80,7 @@
                                             </select>
                                             <input type="submit" class="d-none" value="">
                                         </form>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -98,7 +98,7 @@
 
                                         <!-- Product Badge -->
                                         <div class="product-badge offer-badge">
-                                            <span>-{{ $pr->discount }}</span>
+                                            <span>-{{ $pr->discount }}%</span>
                                         </div>
                                     </div>
 

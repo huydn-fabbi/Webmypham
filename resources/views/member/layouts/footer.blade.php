@@ -6,14 +6,13 @@
           <div class="single_widget_area d-flex mb-30">
             <!-- Logo -->
             <div class="footer-logo mr-50">
-                <a href="#"><img src="{{ asset('img/core-img/logo2.png') }}" alt=""></a>
+                <a href="#"><span style="font-size: 35px; color:crimson">Mỹ Hạnh</span></a>
             </div>
             <!-- Footer Menu -->
             <div class="footer_menu">
                 <ul>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="blog.html">Bài Viết</a></li>
+                    <li><a href="contact.html">Liên Hệ</a></li>
                 </ul>
             </div>
           </div>

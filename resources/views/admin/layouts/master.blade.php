@@ -29,6 +29,11 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="{{ asset('assets/css/pe-icon-7-stroke.css') }}" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+
 </head>
 <body>
 <div class="wrapper">
@@ -40,6 +45,11 @@
         @include('admin.layouts.footer')
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#datepicker').datepicker({ dateFormat: 'yy-mm-dd' });
+    }); 
+</script>
 </body>
 <!--   Core JS Files   -->
 <script src="{{ asset('assets/js/jquery.3.2.1.min.js') }}" type="text/javascript"></script>
@@ -58,5 +68,10 @@
 	<script src="{{ asset('assets/js/light-bootstrap-dashboard.js?v=1.4.0') }}"></script>
 
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-	<script src="{{ asset('assets/js/demo.js') }}"></script>
+    <script src="{{ asset('assets/js/demo.js') }}"></script>
+    
+    
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+    <script> CKEDITOR.replace('editor1'); </script>
+    <script> CKEDITOR.replace('editor2'); </script>
 </html>

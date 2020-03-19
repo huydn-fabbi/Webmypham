@@ -75,7 +75,7 @@
       <div class="row">
         <div class="col-12">
             <div class="section-heading text-center">
-                <h2>Popular Products</h2>
+                <h2>SẢN PHẨM NỔI BẬT</h2>
             </div>
         </div>
       </div>
@@ -106,17 +106,65 @@
                                 <div class="hover-content">
                                     <!-- Add to Cart -->
                                     <div class="add-to-cart-btn">
-                                        <a href="#" class="btn essence-btn">Add to Cart</a>
+                                        <a style="width: 45px" href="#" class="btn essence-btn">Thêm Giỏ Hàng</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         @endforeach
-
+                    </div>
                 </div>
+            </div>
+      </div>
   </section>
   <!-- ##### New Arrivals Area End ##### -->
+<section class="new_arrivals_area section-padding-80 clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+          <div class="section-heading text-center">
+              <h2>SẢN PHẨM MỚI</h2>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="popular-products-slides owl-carousel">
+                        @foreach ($newProduct as $np)
+                        <!-- Single Product -->
+                        <div class="single-product-wrapper">
+                            <!-- Product Image -->
+                            <div class="product-img">
+                                <img style="width:200px; height:230px;" src="{{ $np->image_paths[0]->image_url }}" alt="">
+                                <!-- Hover Thumb -->
+                                <img style="width:200px; height:230px;" class="hover-img" src="{{ $np->image_paths[1]->image_url }}" alt="">
 
+                            </div>
+                            <!-- Product Description -->
+                            <div class="product-description">
+                                <span>{{ $np->category_name }}</span>
+                                <a href="{{ route('product', $np->product_id) }}">
+                                    <h6>{{ $np->product_name }}</h6>
+                                </a>
+                                <p class="product-price">{{ $np->price }} VND</p>
+
+                                <!-- Hover Content -->
+                                <div class="hover-content">
+                                    <!-- Add to Cart -->
+                                    <div class="add-to-cart-btn">
+                                        <a href="#" class="btn essence-btn">Thêm Giỏ Hàng</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+      </div>
+      </section>
   <!-- ##### Brands Area Start ##### -->
   <div class="brands-area d-flex align-items-center justify-content-between">
     <!-- Brand Logo -->

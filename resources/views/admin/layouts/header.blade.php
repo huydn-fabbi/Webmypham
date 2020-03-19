@@ -67,8 +67,8 @@
                         <li><a href="#">Separated link</a></li>
                         </ul>
                 </li> -->
-                <li style="margin-left: 743px;">
-                    <a href="#">
+                <li style="margin-left: 1100px;">
+                    <a href="{{ route('logout') }}">
                         <p>Đăng xuất</p>
                     </a>
                 </li>

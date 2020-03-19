@@ -1,10 +1,5 @@
 @extends('admin.layouts.master')
 @section('content')
-<style>
-    .pagination {
-        margin-left: 874px;
-    }
-</style>
 <div class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -13,18 +8,18 @@
                         <div class="card">
                             <div class="header">
                                 <div class="row">
-                                    <div class="col-md-3">
+                                    <div class="col-md-2">
                                         <label for="id">ID</label>
                                         <input style="height: 30px;width: 70px;" class="form-control" id="id">
                                     </div>
-                                    <div style="margin-left: -160px;" class="col-md-3">
+                                    <div style="margin-left: -160px;" class="col-md-2">
                                         <label for="id">Tên</label>
                                         <input style="height: 30px;width: 245px;" class="form-control" id="id">
                                     </div>
-                                    <div style="margin-top: 18px;margin-left: 15px;" class="col-md-3">
+                                    <div style="margin-top: 22px;margin-left: 15px;" class="col-md-7">
                                         <button type="button" class="btn btn-success">Tìm Kiếm</button>
                                     </div>
-                                    <div style="margin-top: 18px;margin-left: 110px;" class="col-md-3">
+                                    <div style="margin-top: 22px;margin-left: 110px;" class="col-md-1">
                                         <button type="button" class="btn btn-warning">Tạo mới</button>
                                     </div>
                                 </div>

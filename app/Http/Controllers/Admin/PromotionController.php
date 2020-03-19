@@ -19,7 +19,7 @@ class PromotionController extends BaseController
 
     public function getList()
     {   
-        $promotions = Promotion::paginate(5);
+        $promotions = Promotion::select('*', 'discount', 'discount as discount_format')->paginate(5);
 
         return view('admin.pages.promotion.list', compact('promotions'));
     }

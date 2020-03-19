@@ -71,19 +71,4 @@ class Product extends Model
             '3' => 'Hot'
         ][$attribute];
     }
-
-    public function getDiscountAttribute($attribute)
-    {
-        return $attribute . '%';
-    }
-
-    public function getProductAmountFormatAttribute($attribute)
-    {   
-        if($attribute == 0 || $attribute == 1)
-        {
-            return $attribute . ' item';
-        } else {
-            return $attribute . ' items';
-        }
-    }
 }

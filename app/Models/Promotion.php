@@ -21,13 +21,8 @@ class Promotion extends Model
         return $this->hasMany(Product::class, 'promotion_id');
     }
 
-    public function getDiscountAttribute($attribute)
+    public function getDiscountFormatAttribute($attribute)
     {
         return $attribute . '%';
-    }
-
-    public function getDiscountNumberAttribute($attribute)
-    {
-        return $attribute;
     }
 }

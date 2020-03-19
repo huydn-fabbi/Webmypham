@@ -18,14 +18,14 @@
     <a href="cart.html">
         <h2>{{ $product->product_name }}</h2>
     </a>
-    <p class="product-price"><span class="old-price">{{ $product->price }} VND</span> $49.00</p>
+    <p class="product-price"><span class="old-price">{{ $product->price }} VND</span>{{ ($product->price) - (($product->price * $product->discount) / 100) }} VND</p>
     <p class="product-desc">{{ $product->description }}</p>
     <p style="margin-top: 4px" class="product-desc">{{ $product->content }}</p>
 
     <!-- Form -->
     <form class="cart-form clearfix" method="post">
         <!-- Select Box -->
-        <div class="select-box d-flex mt-50 mb-30">
+        <!-- <div class="select-box d-flex mt-50 mb-30">
             <select name="select" id="productSize" class="mr-5">
                 <option value="value">Size: XL</option>
                 <option value="value">Size: X</option>
@@ -38,11 +38,11 @@
                 <option value="value">Color: Red</option>
                 <option value="value">Color: Purple</option>
             </select>
-        </div>
+        </div> -->
         <!-- Cart & Favourite Box -->
         <div class="cart-fav-box d-flex align-items-center">
             <!-- Cart -->
-            <button type="submit" name="addtocart" value="5" class="btn essence-btn">Add to cart</button>
+            <button type="submit" name="addtocart" value="5" class="btn essence-btn">Thêm Giỏ Hàng</button>
         </div>
     </form>
 </div>
