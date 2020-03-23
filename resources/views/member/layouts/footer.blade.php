@@ -1,64 +1,69 @@
-<footer class="footer_area clearfix">
-    <div class="container">
-      <div class="row">
-        <!-- Single Widget Area -->
-        <div class="col-12 col-md-6">
-          <div class="single_widget_area d-flex mb-30">
-            <!-- Logo -->
-            <div class="footer-logo mr-50">
-                <a href="#"><span style="font-size: 35px; color:crimson">Mỹ Hạnh</span></a>
+<footer>
+		<div class="top_ft mb60">
+			<div class="container dad">
+				<h1 class="logo"><a href=""><img src="img/logo.png" alt=""></a></h1>
+				<div class="form_email ">
+					<div class="span6 span-m12 plr10">
+						<h3>Đăng ký nhận tin qua email của chúng tôi</h3>						
+					</div>
+					<div class="span6 span-m12 plr10">
+						<form action="" method="post">
+							<input type="email" name="email" placeholder="Nhập email của bạn... ">
+							<button type="submit">Đăng ký</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mid_ft">
+			<div class="container">
+				<div class="row">
+					<div class="span3 span-t6 span-m12 plr10 mb20">
+						<h3>Theo loại</h3>
+						<ul class="list_link">
+							<li><a href=""><i class="fa fa-angle-right" aria-hidden="true"></i>Dưỡng da</a></li>
+							<li><a href=""><i class="fa fa-angle-right" aria-hidden="true"></i>Dưỡng tóc</a></li>
+							<li><a href=""><i class="fa fa-angle-right" aria-hidden="true"></i>Dưỡng toàn thân</a></li>
+							<li><a href=""><i class="fa fa-angle-right" aria-hidden="true"></i>sản phẩm mới-bộ sản phẩm</a></li>
+							<li><a href=""><i class="fa fa-angle-right" aria-hidden="true"></i>khuyến mãi</a></li>
+						</ul>
+					</div>
+					<div class="span3 span-t6 span-m12 plr10 mb20">
+						<h3>Theo công dụng</h3>
+						<ul class="list_link">
+							<li><a href=""><i class="fa fa-angle-right" aria-hidden="true"></i>Dưỡng da</a></li>
+							<li><a href=""><i class="fa fa-angle-right" aria-hidden="true"></i>Dưỡng tóc</a></li>
+							<li><a href=""><i class="fa fa-angle-right" aria-hidden="true"></i>Dưỡng toàn thân</a></li>
+							<li><a href=""><i class="fa fa-angle-right" aria-hidden="true"></i>sản phẩm mới-bộ sản phẩm</a></li>
+							<li><a href=""><i class="fa fa-angle-right" aria-hidden="true"></i>khuyến mãi</a></li>
+						</ul>
+					</div>	
+					<div class="span3 span-t6 span-m12 plr10 mb20">
+						<h3>Chăm sóc khách hàng</h3>
+						<ul class="list_link">
+							<li><a href=""><i class="fa fa-angle-right" aria-hidden="true"></i>Dưỡng da</a></li>						
+							<li><a href=""><i class="fa fa-angle-right" aria-hidden="true"></i>Dưỡng tóc</a></li>
+							<li><a href=""><i class="fa fa-angle-right" aria-hidden="true"></i>Dưỡng toàn thân</a></li>
+							<li><a href=""><i class="fa fa-angle-right" aria-hidden="true"></i>sản phẩm mới-bộ sản phẩm</a></li>
+							<li><a href=""><i class="fa fa-angle-right" aria-hidden="true"></i>khuyến mãi</a></li>
+						</ul>
+					</div>
+					<div class="span3 span-t6 span-m12 plr10 mb20">
+						<h3>kết nối với kars group</h3>
+						<ul class="ft_social fixf">
+							<li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+							<li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+							<li><a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+							<li><a href=""><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+						</ul>
+					</div>					
+				</div>
+			</div>
+		</div>
+        <div class="bot_ft">
+            <div class="container">
+                <p>© Copyright Kars group</p>
+                <p style="float:right">Design by <a href="" target="_blank" style="color: #727272;">Kars Group</a></p>
             </div>
-            <!-- Footer Menu -->
-            <div class="footer_menu">
-                <ul>
-                    <li><a href="blog.html">Bài Viết</a></li>
-                    <li><a href="contact.html">Liên Hệ</a></li>
-                </ul>
-            </div>
-          </div>
         </div>
-        <!-- Single Widget Area -->
-        <div class="col-12 col-md-6">
-          <div class="single_widget_area mb-30">
-            <ul class="footer_widget_menu">
-              <li><a href="#">Order Status</a></li>
-              <li><a href="#">Payment Options</a></li>
-              <li><a href="#">Shipping and Delivery</a></li>
-              <li><a href="#">Guides</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Terms of Use</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="row align-items-end">
-        <!-- Single Widget Area -->
-        <div class="col-12 col-md-6">
-          <div class="single_widget_area">
-            <div class="footer_heading mb-30">
-                <h6>Subscribe</h6>
-            </div>
-            <div class="subscribtion_form">
-              <form action="#" method="post">
-                  <input type="email" name="mail" class="mail" placeholder="Your email here">
-                  <button type="submit" class="submit"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
-              </form>
-            </div>
-          </div>
-        </div>
-      <!-- Single Widget Area -->
-        <div class="col-12 col-md-6">
-          <div class="single_widget_area">
-            <div class="footer_social_area">
-              <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-              <a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-              <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-              <a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-              <a href="#" data-toggle="tooltip" data-placement="top" title="Youtube"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </footer>

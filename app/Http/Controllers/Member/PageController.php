@@ -113,12 +113,16 @@ class PageController extends BaseController
 
     public function getProductDetail($id)
     {
-        $product = Product::select('products.*', 'categories.category_name', 'brands.brand_name', 'promotions.discount')
+        $product = Product::select('products.*','categories.category_id', 'categories.category_name', 'brands.brand_name', 'promotions.discount')
             ->join('promotions', 'promotions.promotion_id', '=', 'products.promotion_id')
             ->join('categories', 'categories.category_id', '=', 'products.category_id')
             ->join('brands', 'brands.brand_id', '=', 'products.brand_id')->where('products.product_id', $id)->with('image_paths')->first();
+        $brands = Brand::select('brands.*')->get();
+        $categories = Category::select('categories.*')->get();
+        $category_id = $product->category_id;
+        $sameProduct = Product::where('category_id', $category_id)->select('products.*')->with('image_paths')->limit(4)->get();
 
-        return view('member.pages.product-detail', compact('product'));
+        return view('member.pages.product-detail', compact('product', 'brands', 'categories', 'sameProduct'));
     }
 
     public function getSearch(Request $request)
