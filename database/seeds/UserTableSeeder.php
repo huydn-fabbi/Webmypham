@@ -29,6 +29,15 @@ class UserTableSeeder extends Seeder
             'updated_at' => new DateTime
         ]);
 
+        \DB::table('users')->insert([
+            'email' => 'member@gmail.com',
+            'password' => bcrypt('123456'),
+            'name' => "member",
+            'member_type' => 3,
+            'created_at' => new DateTime,
+            'updated_at' => new DateTime
+        ]);
+
         factory(App\Models\User::class, 30)->create();
     }
 }

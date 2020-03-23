@@ -1,3 +1,37 @@
+<style>
+.dropbtn {
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+</style>
 <header>
         <div class="top_hdr">
 			<div class="container">
@@ -34,22 +68,28 @@
 			<div class="container">
 				<nav>
 					<ul class="nav_lv0 nostyle t-off m-off">
-						<li><a href="/" rel="nofollow">Trang chủ</a></li>
-						<li><a href="">Sản phẩm</a></li>
-						<li><a href="">thành phần</a></li>
-						<li><a href="/">Làm đẹp</a></li>
-						<li><a href="/">Giới thiệu</a></li>
-						<li class="active"><a href="">Liên hệ</a></li>
-					</ul>
-					<div class="bar"><a><i class="fa fa-bars" aria-hidden="true"></i></a></div>
-					<ul class="mnav nostyle">
-						<li><a href="/" rel="nofollow">Trang chủ</a></li>
-						<li><a href="">Sản phẩm</a></li>
-						<li><a href="">thành phần</a></li>
-						<li><a href="/">Làm đẹp</a></li>
+						<li><a href="{{ route('home') }}" rel="nofollow">Trang chủ</a></li>
+						<li class="dropdown">
+							<a style="color: #777;" class="dropbtn">DANH MỤC</a>
+							<div class="dropdown-content">
+								@foreach ($category as $ca)
+									<a href="{{ route('category', $ca->category_id) }}">{{ $ca->category_name }}</a>
+								@endforeach
+							</div>
+						</li>
+						<li class="dropdown">
+							<a style="color: #777;" class="dropbtn">NHÃN HÀNG</a>
+							<div class="dropdown-content">
+								@foreach ($brand as $br)
+									<a href="{{ route('brand', $br->brand_id) }}">{{ $br->brand_name }}</a>
+								@endforeach
+							</div>
+						</li>
+						<li><a href="/">Bài Viết</a></li>
 						<li><a href="/">Giới thiệu</a></li>
 						<li><a href="">Liên hệ</a></li>
 					</ul>
+					<div class="bar"><a><i class="fa fa-bars" aria-hidden="true"></i></a></div>
 					<form class="form_search" action="" method="get">
 						<input type="search" name="" placeholder="Tìm kiếm ..." style="padding-left: 10px;">
 						<button type="submit"><i class="fa fa-search"></i></button>

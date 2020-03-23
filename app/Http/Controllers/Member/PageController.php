@@ -186,7 +186,7 @@ class PageController extends BaseController
         $formData = $request->all();
 
         User::create([
-            'member_type' => 1,
+            'member_type' => 3,
             'name' => $formData['name'],
             'email' => $formData['email'],
             'password' => bcrypt($formData['password']),
