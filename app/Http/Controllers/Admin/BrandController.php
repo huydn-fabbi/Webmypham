@@ -6,11 +6,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\Brand;
-use App\Models\Category;
-use App\Models\Product;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class BrandController extends BaseController
 {   
@@ -37,5 +33,30 @@ class BrandController extends BaseController
         $brand = Brand::findOrFail($id);
 
         return view('admin.pages.brand.edit', compact('brand'));
+    }
+
+    public function postAdd(Request $request) 
+    {
+        $data = $request->all();
+        Brand::create($data);
+
+        return redirect(route('listBrand'))->with('message', 'Tạo mới thành công!');
+    }
+
+    public function postEdit(Request $request, $id)
+    {   
+        $data = $request->all();
+        $item = Brand::findOrFail($id);
+        $item->update($data);
+
+        return redirect(route('editBrand', $id))->with('message', 'Cập nhật thành công!');
+    }
+
+    public function getDelete($id)
+    {
+        $item = Brand::findOrFail($id);
+        $item->delete();
+
+        return redirect(route('listBrand'))->with('message', 'Xóa thành công!');
     }
 }

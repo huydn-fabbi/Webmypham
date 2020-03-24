@@ -35,4 +35,29 @@ class PromotionController extends BaseController
 
         return view('admin.pages.promotion.edit', compact('promotion'));
     }
+
+    public function postAdd(Request $request) 
+    {
+        $data = $request->all();
+        Promotion::create($data);
+
+        return redirect(route('listSale'))->with('message', 'Tạo mới thành công!');
+    }
+
+    public function postEdit(Request $request, $id)
+    {   
+        $data = $request->all();
+        $item = Promotion::findOrFail($id);
+        $item->update($data);
+
+        return redirect(route('editSale', $id))->with('message', 'Cập nhật thành công!');
+    }
+
+    public function getDelete($id)
+    {
+        $item = Promotion::findOrFail($id);
+        $item->delete();
+
+        return redirect(route('listSale'))->with('message', 'Xóa thành công!');
+    }
 }

@@ -22,7 +22,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'login'], function()
 	    Route::get('add', 'Admin\CategoryController@getAdd')->name('addCat');
 	    Route::post('add', 'Admin\CategoryController@postAdd');
 	    Route::get('edit/{id}', 'Admin\CategoryController@getEdit')->name('editCat');
-	    Route::post('edit/{id}', 'Admin\CategoryController@postEdit');
+	    Route::put('edit/{id}', 'Admin\CategoryController@postEdit');
 	    Route::get('delete/{id}', 'Admin\CategoryController@getDelete')->name('deleteCat');
     });
 
@@ -32,7 +32,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'login'], function()
 	    Route::get('add', 'Admin\BrandController@getAdd')->name('addBrand');
 	    Route::post('add', 'Admin\BrandController@postAdd');
 	    Route::get('edit/{id}', 'Admin\BrandController@getEdit')->name('editBrand');
-	    Route::post('edit/{id}', 'Admin\BrandController@postEdit');
+	    Route::put('edit/{id}', 'Admin\BrandController@postEdit');
 	    Route::get('delete/{id}', 'Admin\BrandController@getDelete')->name('deleteBrand');
     });
     
@@ -42,7 +42,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'login'], function()
 	    Route::get('add', 'Admin\PromotionController@getAdd')->name('addSale');
 	    Route::post('add', 'Admin\PromotionController@postAdd');
 	    Route::get('edit/{id}', 'Admin\PromotionController@getEdit')->name('editSale');
-	    Route::post('edit/{id}', 'Admin\PromotionController@postEdit');
+	    Route::put('edit/{id}', 'Admin\PromotionController@postEdit');
 	    Route::get('delete/{id}', 'Admin\PromotionController@getDelete')->name('deleteSale');
 	});
 	Route::group(['prefix' => 'product'], function()
@@ -51,7 +51,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'login'], function()
 		Route::get('add', 'Admin\ProductController@getAdd')->name('addProduct');
 		Route::post('add', 'Admin\ProductController@postAdd');
 		Route::get('edit/{id}', 'Admin\ProductController@getEdit')->name('editProduct');
-		Route::post('edit/{id}', 'Admin\ProductController@postEdit');
+		Route::put('edit/{id}', 'Admin\ProductController@postEdit');
 		Route::get('delete/{id}', 'Admin\ProductController@getDelete')->name('deleteProduct');
 		Route::group(['prefix' => 'image'], function()
 		{
@@ -67,7 +67,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'login'], function()
 	    Route::get('add', 'Admin\UserController@getAdd')->name('addUser');
 	    Route::post('add', 'Admin\UserController@postAdd');
 	    Route::get('edit/{id}', 'Admin\UserController@getEdit')->name('editUser');
-	    Route::post('edit/{id}', 'Admin\UserController@postEdit');
+	    Route::put('edit/{id}', 'Admin\UserController@postEdit');
 	    Route::get('delete/{id}', 'Admin\UserController@getDelete')->name('deleteUser');
 	});
 

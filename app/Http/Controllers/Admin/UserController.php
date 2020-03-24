@@ -36,4 +36,39 @@ class UserController extends BaseController
 
         return view('admin.pages.user.edit', compact('user'));
     }
+
+    public function postAdd(Request $request) 
+    {
+        $formData = $request->all();
+        $arr = [
+            'member_type' => 3,
+            'password' => bcrypt('123456')
+        ];
+        $data = array_merge($formData, $arr);
+        User::create($data);
+
+        return redirect(route('listUser'))->with('message', 'Tạo mới thành công!');
+    }
+
+    public function postEdit(Request $request, $id)
+    {   
+        $formData = $request->all();
+        $arr = [
+            'member_type' => 3,
+            'password' => bcrypt('123456')
+        ];
+        $data = array_merge($formData, $arr);
+        $item = User::findOrFail($id);
+        $item->update($data);
+
+        return redirect(route('editUser', $id))->with('message', 'Cập nhật thành công!');
+    }
+
+    public function getDelete($id)
+    {
+        $item = User::findOrFail($id);
+        $item->delete();
+
+        return redirect(route('listUser'))->with('message', 'Xóa thành công!');
+    }
 }

@@ -9,7 +9,8 @@
                                 <h4 class="title">Thêm Khuyến Mãi</h4>
                             </div>
                             <div class="content">
-                                <form>
+                                <form action="{{ route('addSale') }}" method="POST">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
@@ -20,7 +21,7 @@
                                         <div class="col-md-9">
                                             <div class="form-group">
                                                 <label>Giảm Giá</label>
-                                                <input type="text" class="form-control" placeholder="Nhập vào đây ...">
+                                                <input name="discount" type="text" class="form-control" placeholder="Nhập vào đây ...">
                                             </div>
                                         </div>
                                     </div>
@@ -29,13 +30,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Ngày Bắt Đầu</label>
-                                                <input type="text" class="form-control" placeholder="Chọn ngày">
+                                                <input name="start_date" type="date" class="form-control" placeholder="Chọn ngày">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Ngày Kết Thúc</label>
-                                                <input type="text" class="form-control" placeholder="Chọn ngày">
+                                                <input name="end_date" type="date" class="form-control" placeholder="Chọn ngày">
                                             </div>
                                         </div>
                                     </div>

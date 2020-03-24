@@ -9,7 +9,8 @@
                                 <h4 class="title">Thêm Danh Mục</h4>
                             </div>
                             <div class="content">
-                                <form>
+                                <form action="{{ route('addCat') }}" method="POST">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
@@ -20,7 +21,7 @@
                                         <div class="col-md-9">
                                             <div class="form-group">
                                                 <label>Tên Danh Mục</label>
-                                                <input type="text" class="form-control" placeholder="Nhập vào đây ...">
+                                                <input name="category_name" type="text" class="form-control" placeholder="Nhập vào đây ...">
                                             </div>
                                         </div>
                                     </div>

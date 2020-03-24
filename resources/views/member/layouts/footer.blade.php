@@ -1,7 +1,6 @@
 <footer>
 		<div class="top_ft mb60">
 			<div class="container dad">
-				<h1 class="logo"><a href=""><img src="img/logo.png" alt=""></a></h1>
 				<div class="form_email ">
 					<div class="span6 span-m12 plr10">
 						<h3>Đăng ký nhận tin qua email của chúng tôi</h3>						

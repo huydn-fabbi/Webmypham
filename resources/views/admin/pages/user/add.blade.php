@@ -9,7 +9,8 @@
                                 <h4 class="title">Thêm Người Dùng</h4>
                             </div>
                             <div class="content">
-                                <form>
+                                <form action="{{ route('addUser') }}" method="POST">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
@@ -19,8 +20,8 @@
                                         </div>
                                         <div class="col-md-9">
                                             <div class="form-group">
-                                                <label>Tên Sản Phẩm</label>
-                                                <input type="text" class="form-control" placeholder="Nhập vào đây ...">
+                                                <label>Tên Tài Khoản</label>
+                                                <input name="name" type="text" class="form-control" placeholder="Nhập vào đây ...">
                                             </div>
                                         </div>
                                     </div>
@@ -29,7 +30,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Email</label>
-                                                <input type="text" class="form-control" placeholder="Nhập vào đây ...">
+                                                <input name="email" type="text" class="form-control" placeholder="Nhập vào đây ...">
                                             </div>
                                         </div>
                                     </div>

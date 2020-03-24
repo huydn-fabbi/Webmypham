@@ -38,4 +38,29 @@ class CategoryController extends BaseController
 
         return view('admin.pages.category.edit', compact('category'));
     }
+
+    public function postAdd(Request $request) 
+    {
+        $data = $request->all();
+        Category::create($data);
+
+        return redirect(route('listCat'))->with('message', 'Tạo mới thành công!');
+    }
+
+    public function postEdit(Request $request, $id)
+    {   
+        $data = $request->all();
+        $item = Category::findOrFail($id);
+        $item->update($data);
+
+        return redirect(route('editCat', $id))->with('message', 'Cập nhật thành công!');
+    }
+
+    public function getDelete($id)
+    {
+        $item = Category::findOrFail($id);
+        $item->delete();
+
+        return redirect(route('listCat'))->with('message', 'Xóa thành công!');
+    }
 }

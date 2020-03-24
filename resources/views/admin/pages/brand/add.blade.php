@@ -9,7 +9,8 @@
                                 <h4 class="title">Thêm Nhãn Hàng</h4>
                             </div>
                             <div class="content">
-                                <form>
+                                <form action="{{ route('addBrand') }}" method="POST">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
@@ -20,7 +21,7 @@
                                         <div class="col-md-9">
                                             <div class="form-group">
                                                 <label>Tên Nhãn Hàng</label>
-                                                <input type="text" class="form-control" placeholder="Nhập vào đây ...">
+                                                <input  name="brand_name" type="text" class="form-control" placeholder="Nhập vào đây ...">
                                             </div>
                                         </div>
                                     </div>

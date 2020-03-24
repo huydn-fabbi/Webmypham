@@ -90,8 +90,8 @@
 						<li><a href="">Liên hệ</a></li>
 					</ul>
 					<div class="bar"><a><i class="fa fa-bars" aria-hidden="true"></i></a></div>
-					<form class="form_search" action="" method="get">
-						<input type="search" name="" placeholder="Tìm kiếm ..." style="padding-left: 10px;">
+					<form class="form_search" action="{{ route('search') }}" method="get">
+						<input type="search" name="keyword" placeholder="Tìm kiếm ..." style="padding-left: 10px;">
 						<button type="submit"><i class="fa fa-search"></i></button>
 					</form>
 					<div class="cart_hdr_tm t-off m-on">

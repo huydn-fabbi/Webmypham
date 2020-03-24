@@ -1,5 +1,17 @@
 @extends('admin.layouts.master')
 @section('content')
+@if (count($errors) > 0)
+    <div class="alert alert-danger">
+        @foreach ($errors->all() as $err)
+            {{ $err }}<br>
+        @endforeach
+    </div>
+@endif
+@if (session('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+@endif
 <div class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -20,7 +32,7 @@
                                         <button type="button" class="btn btn-success">Tìm Kiếm</button>
                                     </div>
                                     <div style="margin-top: 22px;margin-left: 110px;" class="col-md-1">
-                                        <button type="button" class="btn btn-warning">Tạo mới</button>
+                                        <a href="{{ route('addUser') }}" role="button" class="btn btn-warning">Tạo mới</a>
                                     </div>
                                 </div>
                             </div>
@@ -38,7 +50,7 @@
                                                 <td style="text-align:center">{{ $key->user_id }}</td>
                                                 <td>{{ $key->name }}</td>
                                                 <td>{{ $key->email }}</td>
-                                                <td style="text-align: center"><button type="button" class="btn btn-primary">Cập Nhật</button></td>
+                                                <td style="width: 160px;text-align:center"><a href="{{ route('editUser', $key->user_id) }}" role="button" class="btn btn-primary">Cập Nhật</a></td>
                                             </tr>
                                         @endforeach
                                     </tbody>

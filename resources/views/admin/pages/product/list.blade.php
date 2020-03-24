@@ -1,5 +1,17 @@
 @extends('admin.layouts.master')
 @section('content')
+@if (count($errors) > 0)
+    <div class="alert alert-danger">
+        @foreach ($errors->all() as $err)
+            {{ $err }}<br>
+        @endforeach
+    </div>
+@endif
+@if (session('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+@endif
 <div class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -20,7 +32,7 @@
                                         <button type="button" class="btn btn-success">Tìm Kiếm</button>
                                     </div>
                                     <div style="margin-top: 22px;margin-left: 110px;" class="col-md-1">
-                                        <button type="button" class="btn btn-warning">Tạo mới</button>
+                                        <a href="{{ route('addProduct') }}" role="button" class="btn btn-warning">Tạo mới</a>
                                     </div>
                                 </div>
                             </div>
@@ -47,13 +59,13 @@
                                                 <td>{{ $key->product_name }}</td>
                                                 <td>{{ $key->category->category_name }}</td>
                                                 <td>{{ $key->brand->brand_name }}</td>
-                                                <td style="text-align:center">{{ $key->promotion->discount }}</td>
+                                                <td style="text-align:center">{{ $key->promotion->discount }}%</td>
                                                 <td>{{ $key->description }}</td>
                                                 <td>{{ $key->content }}</td>
                                                 <td style="text-align:center">{{ $key->price }}</td>
                                                 <td style="text-align:center">{{ $key->product_type_format }}</td>
                                                 <td style="text-align:center">{{ $key->product_amount }}</td>
-                                                <td><button type="button" class="btn btn-primary">Cập Nhật</button></td>
+                                                <td><a href="{{ route('editProduct', $key->product_id) }}" role="button" class="btn btn-primary">Cập Nhật</a></td>
                                                 <td><button type="button" class="btn btn-info">Chi Tiết</button></td>
                                             </tr>
                                         @endforeach

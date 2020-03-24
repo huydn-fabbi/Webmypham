@@ -159,16 +159,16 @@
                                             <div class="wrapper_prd plr10 mb20">
                                                 <div class="item_prd">
                                                     <div class="image">
-                                                        <a href="" class="p1x1"><img src="{{ $sp->image_paths[0]->image_url }}" alt=""></a>
+                                                        <a href="{{ route('product', $sp->product_id) }}" class="p1x1"><img src="{{ $sp->image_paths[0]->image_url }}" alt=""></a>
                                                     </div>
                                                     <div class="info">
                                                         <h4>
-                                                            <a href="">{{ $sp->product_name }}</a>
+                                                            <a href="{{ route('product', $sp->product_id) }}">{{ $sp->product_name }}</a>
                                                         </h4>
                                                     </div>
                                                 </div>
                                             </div>
-                                        @endforeach                                    							
+                                        @endforeach
 									</div>
 								</div>
 							</div>

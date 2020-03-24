@@ -72,7 +72,6 @@ class PageController extends BaseController
             ->with('image_paths')->get();
         $brands = Brand::select('brands.*')->get();
         $categories = Category::select('categories.*')->get();
-        $productCount = $products->count();
         $products->map(function($value) {
             $imagePath = $value->image_paths->first();
             if (isset($imagePath)) {
@@ -81,8 +80,17 @@ class PageController extends BaseController
                 $value['image_url'] = '';
             }
         });
+        $hotProduct = Product::select(
+            'products.*',
+            'categories.category_name')
+            ->join('categories', 'categories.category_id', '=', 'products.category_id')
+            ->where('product_type', 3)
+            ->where('products.category_id', $id)
+            ->with('image_paths')
+            ->limit(4)
+            ->get();
 
-        return view('member.pages.products', compact('products', 'brands', 'categories', 'productCount'));
+        return view('member.pages.products', compact('products', 'brands', 'categories', 'hotProduct'));
     }
 
     public function getProductPageByBrand($id)
@@ -120,7 +128,7 @@ class PageController extends BaseController
         $brands = Brand::select('brands.*')->get();
         $categories = Category::select('categories.*')->get();
         $category_id = $product->category_id;
-        $sameProduct = Product::where('category_id', $category_id)->select('products.*')->with('image_paths')->limit(4)->get();
+        $sameProduct = Product::where('category_id', $category_id)->where('product_id', '!=', $id)->select('products.*')->with('image_paths')->limit(4)->get();
 
         return view('member.pages.product-detail', compact('product', 'brands', 'categories', 'sameProduct'));
     }

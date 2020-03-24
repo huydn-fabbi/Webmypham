@@ -24,19 +24,19 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('listCat') }}">
+                    <a href="{{ route('listBrand') }}">
                         <i class="pe-7s-ribbon"></i>
                         <p>Quản lý nhãn hàng</p>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('listCat') }}">
+                    <a href="{{ route('listSale') }}">
                         <i class="pe-7s-diamond"></i>
                         <p>Quản lý khuyến mãi</p>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('listCat') }}">
+                    <a href="{{ route('listProduct') }}">
                         <i class="pe-7s-plugin"></i>
                         <p>Quản lý sản phẩm</p>
                     </a>
@@ -48,7 +48,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('listCat') }}">
+                    <a href="{{ route('listUser') }}">
                         <i class="pe-7s-users"></i>
                         <p>Quản lý người dùng</p>
                     </a>
