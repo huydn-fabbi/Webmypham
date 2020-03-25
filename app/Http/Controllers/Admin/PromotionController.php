@@ -17,9 +17,44 @@ class PromotionController extends BaseController
         view()->share('name', $name);
     }
 
-    public function getList()
+    public function getList(Request $request)
     {   
-        $promotions = Promotion::select('*', 'discount', 'discount as discount_format')->paginate(5);
+        $query = Promotion::select('*', 'discount', 'discount as discount_format');
+        $filters = [
+            'promotions.discount' => [
+                'where' => 'like',
+                'value' => null,
+            ],
+            'promotions.promotion_id' => [
+                'where' => '=',
+                'value' => null,
+            ],
+            'promotions.start_date' => [
+                'where' => '=',
+                'value' => null,
+            ],
+            'promotions.end_date' => [
+                'where' => '=',
+                'value' => null,
+            ],
+        ];
+        $filters['promotions.discount']['value'] = $request->discount ?? '';
+        $filters['promotions.promotion_id']['value'] = $request->id ?? '';
+        $filters['promotions.start_date']['value'] = $request->start_date ?? '';
+        $filters['promotions.end_date']['value'] = $request->end_date ?? '';
+
+        foreach ($filters as $key => $where) {
+            if (!$where['value']) {
+                continue;
+            }
+            if ($where['where'] == 'like') {
+                $query = $query->where($key, 'like', '%' . $where['value'] . '%');
+            } elseif ($where['where'] == '=') {
+                $query = $query->where($key, '=', $where['value']);
+            }
+        }
+
+        $promotions = $query->paginate(5);
 
         return view('admin.pages.promotion.list', compact('promotions'));
     }

@@ -20,9 +20,34 @@ class CategoryController extends BaseController
         view()->share('name', $name);
     }
 
-    public function getList()
+    public function getList(Request $request)
     {   
-        $categories = Category::paginate(5);
+        $query = Category::select('*');
+        $filters = [
+            'categories.category_name' => [
+                'where' => 'like',
+                'value' => null,
+            ],
+            'categories.category_id' => [
+                'where' => '=',
+                'value' => null,
+            ],
+        ];
+        $filters['categories.category_name']['value'] = $request->name ?? '';
+        $filters['categories.category_id']['value'] = $request->id ?? '';
+
+        foreach ($filters as $key => $where) {
+            if (!$where['value']) {
+                continue;
+            }
+            if ($where['where'] == 'like') {
+                $query = $query->where($key, 'like', '%' . $where['value'] . '%');
+            } elseif ($where['where'] == '=') {
+                $query = $query->where($key, '=', $where['value']);
+            }
+        }
+
+        $categories = $query->paginate(5);
 
         return view('admin.pages.category.list', compact('categories'));
     }

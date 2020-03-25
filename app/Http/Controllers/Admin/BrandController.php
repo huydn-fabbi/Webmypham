@@ -16,9 +16,34 @@ class BrandController extends BaseController
         view()->share('name', $name);
     }
 
-    public function getList()
+    public function getList(Request $request)
     {   
-        $brands = Brand::paginate(5);
+        $query = Brand::select('*');
+        $filters = [
+            'brands.brand_name' => [
+                'where' => 'like',
+                'value' => null,
+            ],
+            'brands.brand_id' => [
+                'where' => '=',
+                'value' => null,
+            ],
+        ];
+        $filters['brands.brand_name']['value'] = $request->name ?? '';
+        $filters['brands.brand_id']['value'] = $request->id ?? '';
+
+        foreach ($filters as $key => $where) {
+            if (!$where['value']) {
+                continue;
+            }
+            if ($where['where'] == 'like') {
+                $query = $query->where($key, 'like', '%' . $where['value'] . '%');
+            } elseif ($where['where'] == '=') {
+                $query = $query->where($key, '=', $where['value']);
+            }
+        }
+
+        $brands = $query->paginate(5);
 
         return view('admin.pages.brand.list', compact('brands'));
     }

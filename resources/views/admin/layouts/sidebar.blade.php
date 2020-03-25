@@ -42,7 +42,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('listCat') }}">
+                    <a href="{{ route('listBlog') }}">
                         <i class="pe-7s-news-paper"></i>
                         <p>Quản lý bài viết</p>
                     </a>
@@ -55,7 +55,7 @@
                 </li>
                 @if(Auth::user()->member_type == 1)
                     <li>
-                        <a href="{{ route('listCat') }}">
+                        <a href="{{ route('listEmployee') }}">
                             <i class="pe-7s-user"></i>
                             <p>Quản lý nhân viên</p>
                         </a>

@@ -12,38 +12,41 @@
         {{ session('message') }}
     </div>
 @endif
+
+@if (count($promotions) > 0)
 <div class="content">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-            @if (count($promotions) > 0)
                 <div class="card">
-                    <div class="header">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <label for="id">ID</label>
-                                <input style="height: 30px;width: 70px;" class="form-control" id="id">
-                            </div>
-                            <div style="margin-left: -160px;" class="col-md-2">
-                                <label for="id">Tên</label>
-                                <input style="height: 30px;width: 200px;" class="form-control" id="id">
-                            </div>
-                            <div style="margin-left: -28px;" class="col-md-2">
-                                <label for="id">Ngày Bắt Đầu</label>
-                                <input style="height: 30px;width: 200px;" class="form-control" id="id">
-                            </div>
-                            <div style="margin-left: -28px;" class="col-md-2">
-                                <label for="id">Ngày Kết Thúc</label>
-                                <input style="height: 30px;width: 200px;" class="form-control" id="id">
-                            </div>
-                            <div style="margin-top: 22px" class="col-md-3">
-                                <button type="button" class="btn btn-success">Tìm Kiếm</button>
-                            </div>
-                            <div style="margin-top: 22px;margin-left: 150px;" class="col-md-1">
-                                <a href="{{ route('addSale') }}" role="button" class="btn btn-warning">Tạo mới</a>
+                    <form method="GET" action="{{ route('listSale') }}">
+                        <div class="header">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label for="id">ID</label>
+                                    <input name="id" style="height: 30px;width: 70px;" class="form-control" id="id">
+                                </div>
+                                <div style="margin-left: -145px;" class="col-md-2">
+                                    <label for="id">Giảm Giá</label>
+                                    <input name="discount" style="height: 30px;width: 200px;" class="form-control" id="id">
+                                </div>
+                                <div style="margin-left: -28px;" class="col-md-2">
+                                    <label for="id">Ngày Bắt Đầu</label>
+                                    <input name="start_date" type="date" style="height: 30px;width: 200px;" class="form-control" id="id">
+                                </div>
+                                <div style="margin-left: -28px;" class="col-md-2">
+                                    <label for="id">Ngày Kết Thúc</label>
+                                    <input name="end_date" type="date" style="height: 30px;width: 200px;" class="form-control" id="id">
+                                </div>
+                                <div style="margin-top: 22px" class="col-md-3">
+                                    <button type="submit" class="btn btn-success">Tìm Kiếm</button>
+                                </div>
+                                <div style="margin-top: 22px;margin-left: 150px;" class="col-md-1">
+                                    <a href="{{ route('addSale') }}" role="button" class="btn btn-warning">Tạo mới</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                     <div class="content table-responsive table-full-width">
                         <table style="margin-top: 20px;" class="table table-bordered">
                             <thead>
@@ -66,18 +69,51 @@
                             </tbody>
                         </table>
                         {{ $promotions->links() }}
-                        @else
-                            <h5>NO DATA</h5>
-                        @endif
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    $('.date').datepicker({  
-       format: 'mm-dd-yyyy'
-     });  
-</script>
+@else
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <form method="GET" action="{{ route('listSale') }}">
+                        <div class="header">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label for="id">ID</label>
+                                    <input name="id" style="height: 30px;width: 70px;" class="form-control" id="id">
+                                </div>
+                                <div style="margin-left: -145px;" class="col-md-2">
+                                    <label for="id">Giảm Giá</label>
+                                    <input name="discount" style="height: 30px;width: 200px;" class="form-control" id="id">
+                                </div>
+                                <div style="margin-left: -28px;" class="col-md-2">
+                                    <label for="id">Ngày Bắt Đầu</label>
+                                    <input name="start_date" type="date" style="height: 30px;width: 200px;" class="form-control" id="id">
+                                </div>
+                                <div style="margin-left: -28px;" class="col-md-2">
+                                    <label for="id">Ngày Kết Thúc</label>
+                                    <input name="end_date" type="date" style="height: 30px;width: 200px;" class="form-control" id="id">
+                                </div>
+                                <div style="margin-top: 22px" class="col-md-3">
+                                    <button type="submit" class="btn btn-success">Tìm Kiếm</button>
+                                </div>
+                                <div style="margin-top: 22px;margin-left: 150px;" class="col-md-1">
+                                    <a href="{{ route('addSale') }}" role="button" class="btn btn-warning">Tạo mới</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <h2 style="text-align: center">Không có dữ liệu</h2>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
 @endsection

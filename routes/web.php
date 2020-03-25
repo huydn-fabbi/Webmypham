@@ -23,7 +23,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'login'], function()
 	    Route::post('add', 'Admin\CategoryController@postAdd');
 	    Route::get('edit/{id}', 'Admin\CategoryController@getEdit')->name('editCat');
 	    Route::put('edit/{id}', 'Admin\CategoryController@postEdit');
-	    Route::get('delete/{id}', 'Admin\CategoryController@getDelete')->name('deleteCat');
+		Route::get('delete/{id}', 'Admin\CategoryController@getDelete')->name('deleteCat');
     });
 
     Route::group(['prefix' => 'brand'], function()
@@ -45,6 +45,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'login'], function()
 	    Route::put('edit/{id}', 'Admin\PromotionController@postEdit');
 	    Route::get('delete/{id}', 'Admin\PromotionController@getDelete')->name('deleteSale');
 	});
+
 	Route::group(['prefix' => 'product'], function()
 	{
 		Route::get('list', 'Admin\ProductController@getList')->name('listProduct');
@@ -55,12 +56,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'login'], function()
 		Route::get('delete/{id}', 'Admin\ProductController@getDelete')->name('deleteProduct');
 		Route::group(['prefix' => 'image'], function()
 		{
-			Route::get('list/{id}', 'FoodImageController@getList')->name('listImage');
-			Route::get('add/{id}', 'FoodImageController@getAdd')->name('addImage');
-			Route::post('add/{id}', 'FoodImageController@postAdd');
-			Route::get('delete/{id}', 'FoodImageController@getDelete')->name('deleteImage');
+			Route::get('list/{id}', 'Admin\ImageController@getAll')->name('listImage');
+			Route::post('add/{id}', 'Admin\ImageController@postAdd')->name('addImage');
+			Route::get('delete/{id}', 'Admin\ImageController@getDelete')->name('deleteImage');
 		});
 	});
+	
 	Route::group(['prefix' => 'user'], function()
 	{
 	    Route::get('list', 'Admin\UserController@getList')->name('listUser');
@@ -71,14 +72,24 @@ Route::group(['prefix' => 'admin', 'middleware' => 'login'], function()
 	    Route::get('delete/{id}', 'Admin\UserController@getDelete')->name('deleteUser');
 	});
 
-	Route::group(['prefix' => 'commentFood'], function()
+	Route::group(['prefix' => 'employee'], function()
 	{
-		Route::get('list/{id}', 'CommentController@getListFood')->name('listCommentFood');
+	    Route::get('list', 'Admin\EmployeeController@getList')->name('listEmployee');
+	    Route::get('add', 'Admin\EmployeeController@getAdd')->name('addEmployee');
+	    Route::post('add', 'Admin\EmployeeController@postAdd');
+	    Route::get('edit/{id}', 'Admin\EmployeeController@getEdit')->name('editEmployee');
+	    Route::put('edit/{id}', 'Admin\EmployeeController@postEdit');
+	    Route::get('delete/{id}', 'Admin\EmployeeController@getDelete')->name('deleteEmployee');
 	});
-	Route::group(['prefix' => 'commentNews'], function()
-	{
-		Route::get('list/{id}', 'CommentController@getListNews')->name('listCommentNews');
-	});
+
+	// Route::group(['prefix' => 'commentFood'], function()
+	// {
+	// 	Route::get('list/{id}', 'CommentController@getListFood')->name('listCommentFood');
+	// });
+	// Route::group(['prefix' => 'commentNews'], function()
+	// {
+	// 	Route::get('list/{id}', 'CommentController@getListNews')->name('listCommentNews');
+	// });
 	Route::group(['prefix' => 'order'], function()
 	{
 		Route::get('list', 'OrderController@getList')->name('listOrder');
@@ -87,14 +98,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'login'], function()
 	    Route::post('edit/{id}', 'OrderController@postEdit');
 		Route::get('delete/{id}', 'OrderController@getDelete')->name('deleteOrder');
 	});
-	Route::group(['prefix' => 'news'], function()
+	Route::group(['prefix' => 'blog'], function()
 	{
-	    Route::get('list', 'NewsController@getList')->name('listNews');
-	    Route::get('add', 'NewsController@getAdd')->name('addNews');
-	    Route::post('add', 'NewsController@postAdd');
-	    Route::get('edit/{id}', 'NewsController@getEdit')->name('editNews');
-	    Route::post('edit/{id}', 'NewsController@postEdit');
-	    Route::get('delete/{id}', 'NewsController@getDelete')->name('deleteNews');
+	    Route::get('list', 'Admin\BlogController@getList')->name('listBlog');
+	    Route::get('add', 'Admin\BlogController@getAdd')->name('addBlog');
+	    Route::post('add', 'Admin\BlogController@postAdd');
+	    Route::get('edit/{id}', 'Admin\BlogController@getEdit')->name('editBlog');
+	    Route::put('edit/{id}', 'Admin\BlogController@postEdit');
+	    Route::get('delete/{id}', 'Admin\BlogController@getDelete')->name('deleteBlog');
 	});
 });
 
