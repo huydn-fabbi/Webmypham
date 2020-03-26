@@ -31,6 +31,17 @@
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+.badge-notify{
+    background:red;
+    position:relative;
+    top: -20px;
+    right: 10px;
+  }
+  .my-cart-icon-affix {
+    position: fixed;
+    z-index: 999;
+  }
 </style>
 <header>
         <div class="top_hdr">
@@ -52,12 +63,12 @@
 						</div>
 					@endif
 					<div class="plr10 span4 span-t6 span-m12">
-						<h1 style="margin-top: 55px;margin-left: 55px;font-weight: bold;">MỸ PHẨM MỸ HẠNH</h1>
+						<h1 style="font-size: xx-large;margin-top: 55px;margin-left: 55px;font-weight: bold;color: gray;">MỸ PHẨM MỸ HẠNH</h1>
 					</div>
 					<div class="plr10 span4 span-t3 m-off">
 						<div class="cart_hdr m-off">
-							<a href="" rel="nofollow"><i class="fa fa-shopping-cart"></i>
-							<span >(0)Sản phẩm</span>
+							<a style="cursor: pointer;">
+							<span style="font-size: xx-large;" class="glyphicon glyphicon-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
 							</a>
 						</div>
 					</div>

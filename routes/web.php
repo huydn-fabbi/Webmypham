@@ -119,3 +119,6 @@ Route::get('/login', 'Member\PageController@getLogin')->name('login');
 Route::post('/login', 'Member\PageController@postLogin');
 Route::get('/register', 'Member\PageController@getSignup')->name('register');
 Route::get('logout', 'Member\PageController@getLogout')->name('logout');
+Route::get('/', function () {
+    return view('member.pages.cart');
+});

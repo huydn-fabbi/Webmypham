@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
-use App\Models\ImagePath;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -110,6 +109,7 @@ class BlogController extends Controller
     public function getDelete($id)
     {
         $item = Blog::findOrFail($id);
+        unlink(substr($item->image, 1));
         $item->delete();
 
         return redirect(route('listBlog'))->with('message', 'Xóa thành công!');

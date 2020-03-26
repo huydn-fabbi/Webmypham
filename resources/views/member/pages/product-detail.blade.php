@@ -102,15 +102,7 @@
 									</div>
 									</p>
 									<div class="group_pick_quantity fixf mb20">
-										<p>Số lượng</p>
-										<form class="fixf" action="" method="get">
-											<div class="pick span4">
-												<button  onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty > 1 ) result.value--;return false;">-</button>
-												<input type="text" name="soluong" value="1" class="input-control" id="qty" >
-												<button  onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;">+</button>
-											</div>
-											<button type="submit" class="btn btn_submit">Đặt hàng</button>
-										</form>
+										<button data-id="{{ $product->product_id }}" data-name="{{ $product->product_name }}" data-summary="summary 1" data-price="{{ $product->price }}" data-quantity="1" data-image="{{ $product->image_paths[0]->image_url }}" class="btn my-cart-btn">Đặt hàng</button>
 									</div>
 								</div>
 							</div>

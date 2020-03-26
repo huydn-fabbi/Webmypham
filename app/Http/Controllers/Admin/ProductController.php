@@ -120,6 +120,12 @@ class ProductController extends BaseController
     public function getDelete($id)
     {
         $item = Product::findOrFail($id);
+        $images = ImagePath::where('product_id', $id)->get();
+
+        foreach($images as $image) {
+            unlink(substr($image->image_url, 1));
+            $image->delete();
+        }
         $item->delete();
 
         return redirect(route('listProduct'))->with('message', 'Xóa thành công!');
