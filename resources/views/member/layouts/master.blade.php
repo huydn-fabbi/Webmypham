@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html itemscope itemtype="https://schema.org/WebSite" lang="vi">  
 <head>
-    <title>website phân phối mỹ phẩm</title>
+    <title>Mỹ Phẩm Mỹ Hạnh</title>
     <meta charset="UTF-8">
     <meta name="robots" content="INDEX,FOLLOW">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <script language="javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('css/elegant-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/themify-icons.css') }}">
 </head>
 <body>
     @include('member.layouts.header')
@@ -42,6 +44,17 @@
     <script type='text/javascript' src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script type='text/javascript' src="{{ asset('js/jquery.mycart.js') }}"></script>
     <script language="javascript" src="{{ asset('js/slick.min.js') }}"></script>
+    <!-- JavaScript -->
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
 	<script>
         $("a[href='#top']").click(function() {
             $("html, body").animate({ scrollTop: 0 },"fast");
@@ -54,55 +67,93 @@
                 $(".scroll_bot").addClass("show2")}else{$(".scroll_top").removeClass("show2")
             }
         });
-        $(function () {
-            var goToCartIcon = function($addTocartBtn){
-                var $cartIcon = $(".my-cart-icon");
-                var $image = $('<img width="30px" height="30px" src="' + $addTocartBtn.data("image") + '"/>').css({"position": "fixed", "z-index": "999"});
-                $addTocartBtn.prepend($image);
-                var position = $cartIcon.position();
-                $image.animate({
-                    top: position.top,
-                    left: position.left
-                }, 500 , "linear", function() {
-                    $image.remove();
-                });
-            }
-
-            $('.my-cart-btn').myCart({
-                currencySymbol: '$',
-                classCartIcon: 'my-cart-icon',
-                classCartBadge: 'my-cart-badge',
-                classProductQuantity: 'my-product-quantity',
-                classProductRemove: 'my-product-remove',
-                classCheckoutCart: 'my-cart-checkout',
-                affixCartIcon: true,
-                showCheckoutModal: true,
-                numberOfDecimals: 2,
-                cartItems: [],
-                clickOnAddToCart: function($addTocart){
-                    goToCartIcon($addTocart);
-                },
-                afterAddOnCart: function(products, totalPrice, totalQuantity) {
-                    console.log("afterAddOnCart", products, totalPrice, totalQuantity);
-                },
-                clickOnCartIcon: function($cartIcon, products, totalPrice, totalQuantity) {
-                    console.log("cart icon clicked", $cartIcon, products, totalPrice, totalQuantity);
-                },
-                checkoutCart: function(products, totalPrice, totalQuantity) {
-                    var checkoutString = "Total Price: " + totalPrice + "\nTotal Quantity: " + totalQuantity;
-                    checkoutString += "\n\n id \t name \t summary \t price \t quantity \t image path";
-                    $.each(products, function(){
-                    checkoutString += ("\n " + this.id + " \t " + this.name + " \t " + this.summary + " \t " + this.price + " \t " + this.quantity + " \t " + this.image);
-                    });
-                    alert(checkoutString)
-                    console.log("checking out", products, totalPrice, totalQuantity);
-                },
-                getDiscountPrice: function(products, totalPrice, totalQuantity) {
-                    console.log("calculating discount", products, totalPrice, totalQuantity);
-                    return totalPrice * 0.5;
+        function addCart(id) {
+            $.ajax({
+                url: '/cart/add/' + id,
+                type: 'GET',
+            }).done(function(response) {
+                renderCart(response);
+                alertify.success('Đã thêm vào giỏ hàng');
+            })
+        }
+        $("#change-item").on("click", ".si-close i", function() {
+            console.log($(this).data("id"));
+            $.ajax({
+                url: '/cart/delete/' + $(this).data("id"),
+                type: 'GET',
+            }).done(function(response) {
+                renderCart(response);
+                alertify.error('Đã xóa khỏi giỏ hàng');
+            })
+        })
+        function renderCart(response) {
+            $("#change-item").empty();
+            $("#change-item").html(response);
+            $("#total-quantity").text($("#quantity").val());
+        }
+        var proQty = $('.pro-qty');
+        proQty.prepend('<span class="dec qtybtn">-</span>');
+        proQty.append('<span class="inc qtybtn">+</span>');
+        proQty.on('click', '.qtybtn', function () {
+            var $button = $(this);
+            var oldValue = $button.parent().find('input').val();
+            if ($button.hasClass('inc')) {
+                var newVal = parseFloat(oldValue) + 1;
+            } else {
+                // Don't allow decrementing below zero
+                if (oldValue > 0) {
+                    var newVal = parseFloat(oldValue) - 1;
+                } else {
+                    newVal = 0;
                 }
-            });
+            }
+            $button.parent().find('input').val(newVal);
         });
+
+        function renderCartList(response) {
+            $("#list-cart").empty();
+            $("#list-cart").html(response);
+            $("#total-quantity").text($("#quantity").val());
+            var proQty = $('.pro-qty');
+            proQty.prepend('<span class="dec qtybtn">-</span>');
+            proQty.append('<span class="inc qtybtn">+</span>');
+            proQty.on('click', '.qtybtn', function () {
+            var $button = $(this);
+            var oldValue = $button.parent().find('input').val();
+            if ($button.hasClass('inc')) {
+                var newVal = parseFloat(oldValue) + 1;
+            } else {
+                // Don't allow decrementing below zero
+                if (oldValue > 0) {
+                    var newVal = parseFloat(oldValue) - 1;
+                } else {
+                    newVal = 0;
+                }
+            }
+            $button.parent().find('input').val(newVal);
+        });
+        }
+
+        function deleteItem(id) {
+            $.ajax({
+                url: '/cart/delete-item-list/' + id,
+                type: 'GET',
+            }).done(function(response) {
+                renderCartList(response);
+                alertify.error('Đã xóa khỏi giỏ hàng');
+            })
+        }
+
+        function saveItem(id) {
+           console.log( $("#quantity-item-" + id).val());
+            $.ajax({
+                url: '/cart/update/' + id + '/' + $("#quantity-item-" + id).val(),
+                type: 'GET',
+            }).done(function(response) {
+                renderCartList(response);
+                alertify.success('Đã cập nhật giỏ hàng');
+            })
+        }
 	</script>
 </body>
 </html>

@@ -76,16 +76,22 @@
 								<div class="view_info plr10 span7 span-m12">
 									 <h2 class="mb20 mt20">{{ $product->product_name }}</h2>
 									<div class="des fixf mb20">
+										@if($product->promotion_id != null)
+											<p class="price">
+												<span>Giá bán:</span><code style="text-decoration: line-through;">{{ $product->price }}VND</code><code style="color: green">{{ $product->price - (($product->price * $product->promotion->discount) / 100) }}VND</code>
+											</p>
+										@else
 										<p class="price">
-											<span>Giá bán: </span>{{ $product->price }} VND
+											<span>Giá bán:</span><code style="color:green">{{ $product->price }}VND</code>
 										</p>
+										@endif
 										<p>tình trạng:<b>còn hàng</b></p>
 										<p>gross weigh:<b>0g</b></p>										
 										<p>
                                         {{ $product->description }}
 										</p>
-                                        <p class="tag mb10"><i class="fa fa-tags" aria-hidden="true"></i>Danh Mục:<a href="">{{ $product->category->category_name }}</a></p>
-                                        <p class="tag mb10"><i class="fa fa-tags" aria-hidden="true"></i>Nhãn Hàng:<a href="">{{ $product->brand->brand_name }}</a></p>
+                                        <p class="tag mb10"><i class="fa fa-tags" aria-hidden="true"></i>Danh Mục:<a href="{{ route('category', $product->category_id) }}">{{ $product->category->category_name }}</a></p>
+                                        <p class="tag mb10"><i class="fa fa-tags" aria-hidden="true"></i>Nhãn Hàng:<a href="{{ route('brand', $product->brand_id) }}">{{ $product->brand->brand_name }}</a></p>
 										<p class="share_small bor mb20">
 											Chia sẻ:
 											<a href="" title="">
@@ -102,7 +108,7 @@
 									</div>
 									</p>
 									<div class="group_pick_quantity fixf mb20">
-										<button data-id="{{ $product->product_id }}" data-name="{{ $product->product_name }}" data-summary="summary 1" data-price="{{ $product->price }}" data-quantity="1" data-image="{{ $product->image_paths[0]->image_url }}" class="btn my-cart-btn">Đặt hàng</button>
+										<a onclick="addCart({{$product->product_id}});" style="background: green;color: white;" role="button" class="btn my-cart-btn">Đặt Hàng</a>
 									</div>
 								</div>
 							</div>
@@ -151,7 +157,7 @@
                                             <div class="wrapper_prd plr10 mb20">
                                                 <div class="item_prd">
                                                     <div class="image">
-                                                        <a href="{{ route('product', $sp->product_id) }}" class="p1x1"><img src="{{ $sp->image_paths[0]->image_url }}" alt=""></a>
+                                                        <a href="{{ route('product', $sp->product_id) }}" class="p1x1"><img src="{{ $sp->image_url }}" alt=""></a>
                                                     </div>
                                                     <div class="info">
                                                         <h4>

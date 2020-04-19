@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'admin', 'middleware' => 'login'], function()
 {	
-	Route::get('/', 'DashboardController@getHome')->name('dashboard');
+	Route::get('dashboard', 'Admin\DashboardController@getHome')->name('dashboard');
     Route::group(['prefix' => 'category'], function()
 	{
 	    Route::get('list', 'Admin\CategoryController@getList')->name('listCat');
@@ -92,11 +92,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'login'], function()
 	// });
 	Route::group(['prefix' => 'order'], function()
 	{
-		Route::get('list', 'OrderController@getList')->name('listOrder');
-		Route::get('list/{id}', 'OrderController@getListDetail')->name('listDetail');
-		Route::get('edit/{id}', 'OrderController@getEdit')->name('editOrder');
-	    Route::post('edit/{id}', 'OrderController@postEdit');
-		Route::get('delete/{id}', 'OrderController@getDelete')->name('deleteOrder');
+		Route::get('', 'Admin\OrderController@getList')->name('listOrder');
+		Route::get('{id}', 'Admin\OrderController@getListDetail')->name('listDetail');
+	    Route::put('edit/{id}', 'Admin\OrderController@postEdit');
 	});
 	Route::group(['prefix' => 'blog'], function()
 	{
@@ -118,7 +116,18 @@ Route::get('/search', 'Member\PageController@getSearch')->name('search');
 Route::get('/login', 'Member\PageController@getLogin')->name('login');
 Route::post('/login', 'Member\PageController@postLogin');
 Route::get('/register', 'Member\PageController@getSignup')->name('register');
+Route::post('/register', 'Member\PageController@postSignup');
 Route::get('logout', 'Member\PageController@getLogout')->name('logout');
-Route::get('/', function () {
-    return view('member.pages.cart');
+Route::group(['prefix' => 'cart'], function()
+{
+	Route::get('add/{id}', 'Member\CartController@addCart')->name('addCart');
+	Route::get('list', 'Member\CartController@listCart')->name('listCart');
+	Route::get('delete/{id}', 'Member\CartController@deleteCart')->name('deleteCart');
+	Route::get('delete-item-list/{id}', 'Member\CartController@deleteItemCart')->name('deleteItemCart');
+	Route::get('update/{id}/{quantity}', 'Member\CartController@updateCart');
 });
+Route::get('order', 'Member\PageController@getOrder')->name('order');
+Route::post('order', 'Member\PageController@postOrder');
+Route::get('complete', 'Member\PageController@getComplete')->name('complete');
+Route::get('/blog/{id}', 'Member\PageController@getBlogDetail')->name('blog');
+Route::get('/blog', 'Member\PageController@getBlog')->name('blogList');

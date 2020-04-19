@@ -70,7 +70,6 @@
     /*
     PRIVATE
     */
-    localStorage.products = localStorage.products ? localStorage.products : "";
     var getIndexOfProduct = function (id) {
       var productIndex = -1;
       var products = getAllProducts();
@@ -83,7 +82,7 @@
       return productIndex;
     };
     var setAllProducts = function (products) {
-      localStorage.products = JSON.stringify(products);
+      localStorage.setItem("products", JSON.stringify(products));
     };
     var addProduct = function (id, name, summary, price, quantity, image) {
       var products = getAllProducts();

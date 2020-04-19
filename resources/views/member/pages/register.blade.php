@@ -34,12 +34,13 @@
                     <h2 class="title">ĐĂNG KÝ</h2>
                 </div>
                 <div class="card-body">
-                    <form method="POST">
+                    <form method="POST" action="{{ route('register') }}">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-row">
                             <div class="name">Tên Tài Khoản</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="text" name="company">
+                                    <input class="input--style-5" type="text" name="name">
                                 </div>
                             </div>
                         </div>
@@ -55,7 +56,7 @@
                             <div class="name">Mật Khẩu</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="email" name="email">
+                                    <input type="password" class="input--style-5" type="email" name="password">
                                 </div>
                             </div>
                         </div>

@@ -89,7 +89,11 @@
                                         <td>{{ $key->product_name }}</td>
                                         <td>{{ $key->category->category_name }}</td>
                                         <td>{{ $key->brand->brand_name }}</td>
-                                        <td style="text-align:center">{{ $key->promotion->discount }}%</td>
+                                        @if ($key->promotion_id != null)
+                                            <td style="text-align:center">{{ $key->promotion->discount }}%</td>
+                                        @else
+                                            <td style="text-align:center">Không</td>
+                                        @endif
                                         <td>{{ $key->description }}</td>
                                         <td>{{ $key->content }}</td>
                                         <td style="text-align:center">{{ $key->price }}</td>

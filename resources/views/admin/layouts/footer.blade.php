@@ -3,29 +3,14 @@
         <nav class="pull-left">
             <ul>
                 <li>
-                    <a href="#">
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Company
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Portfolio
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Blog
+                    <a>
+                        MỸ PHẨM MỸ HẠNH
                     </a>
                 </li>
             </ul>
         </nav>
         <p class="copyright pull-right">
-            &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+            &copy; <script>document.write(new Date().getFullYear())</script> <a>Mỹ Hạnh</a>, website bán mỹ phẩm trực tuyến
         </p>
     </div>
 </footer>

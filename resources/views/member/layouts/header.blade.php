@@ -42,6 +42,21 @@
     position: fixed;
     z-index: 999;
   }
+  .product-sale {
+      height: 25px;
+      background-color: #000000;
+      color: #ffffff;
+      font-family: "Ubuntu", sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 0 10px;
+      display: inline-block;
+      line-height: 25px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 10; 
+	  background-color: #dc0345;}
 </style>
 <header>
         <div class="top_hdr">
@@ -65,13 +80,52 @@
 					<div class="plr10 span4 span-t6 span-m12">
 						<h1 style="font-size: xx-large;margin-top: 55px;margin-left: 55px;font-weight: bold;color: gray;">MỸ PHẨM MỸ HẠNH</h1>
 					</div>
+					@if (Request::url() !== 'http://127.0.0.1:8000/cart/list')
 					<div class="plr10 span4 span-t3 m-off">
 						<div class="cart_hdr m-off">
-							<a style="cursor: pointer;">
-							<span style="font-size: xx-large;" class="glyphicon glyphicon-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
+							<a href="" rel="nofollow"><i class="fa fa-shopping-cart"></i>
+							@if(Session::has("cart") != null)
+							<span id="total-quantity" style="height: 17px; width: 20px; font-size: 13px;">{{Session::get('cart')->totalQuanity}}</span>
+							@else
+							<span id="total-quantity" style="height: 17px; width: 20px; font-size: 13px;">0</span>
+							@endif
 							</a>
+							<div class="cart-hover">
+								<div id="change-item">
+									@if(Session::has("cart") != null)
+									<div class="select-items">
+										<table>
+											<tbody>
+												@foreach (Session::get("cart")->products as $item)
+												<tr>
+													<td class="si-pic"><img style="width:70px; height:70px" src="{{ $item['productInfo']->image_url }}" alt=""></td>
+													<td class="si-text">
+														<div class="product-selected">
+															<p>{{ $item['productInfo']->price }} x {{ $item['quantity'] }}</p>
+															<h6>{{ $item['productInfo']->product_name }}</h6>
+														</div>
+													</td>
+													<td class="si-close">
+														<i class="ti-close" data-id="{{ $item['productInfo']->product_id }}"></i>
+													</td>
+												</tr>
+												@endforeach
+											</tbody>
+										</table>
+									</div>
+									<div class="select-total">
+										<span>total:</span>
+										<h5>{{ Session::get("cart")->totalPrice }} VND</h5>
+									</div>
+									@endif
+								</div>
+								<div class="select-button">
+									<a style="width: 100%; height: 70px;" href="{{ route('listCart') }}" class="primary-btn view-card">VIEW CARD</a>
+								</div>
+                            </div>
 						</div>
 					</div>
+					@endif
 				</div>
 			</div>
 		</div>
@@ -96,9 +150,7 @@
 								@endforeach
 							</div>
 						</li>
-						<li><a href="/">Bài Viết</a></li>
-						<li><a href="/">Giới thiệu</a></li>
-						<li><a href="">Liên hệ</a></li>
+						<li><a href="{{ route('blogList') }}">Bài Viết</a></li>
 					</ul>
 					<div class="bar"><a><i class="fa fa-bars" aria-hidden="true"></i></a></div>
 					<form class="form_search" action="{{ route('search') }}" method="get">
