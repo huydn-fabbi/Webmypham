@@ -31,7 +31,7 @@
 								@endforeach
 							</ul>
 						</div>
-					</div>	
+					</div>
 					<div class="wrapper_widget mb10">
 						<div class="widget_head">
 							<h3><a href="">Nhãn Hàng</a></h3>
@@ -43,8 +43,8 @@
 								@endforeach
 							</ul>
 						</div>
-					</div>					
-				</div>	
+					</div>
+				</div>
 				<div class="block_right plr10">
 					<div class="block_group_cate fixf mb20">
 						<div class="wrapper_form mb20">
@@ -72,8 +72,8 @@
 														</div>
 													</div>
 												</div>
-											</div>	
-										@endforeach							
+											</div>
+										@endforeach
 									</div>
 								</div>
 							</div>
@@ -102,8 +102,8 @@
 													</h4>
 												</div>
 											</div>
-										</div>	
-									@endforeach						
+										</div>
+									@endforeach
 								</div>
 							</div>
 						</div>
@@ -119,7 +119,7 @@
 			<div class="container">
 				<ul class="fixf">
 					<li><a href="">Trang chủ</a></li>
-					<li><a href="">Tìm Kiếm</a></li>
+					<li><a href="" style="background-color: #f0ad4e; border-color: #f0ad4e">Tìm Kiếm</a></li>
 					<li>Không tìm thấy sản phẩm</li>
 				</ul>
 			</div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html itemscope itemtype="https://schema.org/WebSite" lang="vi">  
+<html itemscope itemtype="https://schema.org/WebSite" lang="vi">
 <head>
-    <title>Mỹ Phẩm Mỹ Hạnh</title>
+    <title>NEM</title>
     <meta charset="UTF-8">
     <meta name="robots" content="INDEX,FOLLOW">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -61,9 +61,9 @@
             return false;
         });
         $(window).scroll(function(){
-            var scroll=$(window).scrollTop(); 
+            var scroll=$(window).scrollTop();
             if(scroll>=100){
-                $(".scroll_top").addClass("show2"); 
+                $(".scroll_top").addClass("show2");
                 $(".scroll_bot").addClass("show2")}else{$(".scroll_top").removeClass("show2")
             }
         });

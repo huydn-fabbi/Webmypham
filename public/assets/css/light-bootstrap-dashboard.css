@@ -1405,8 +1405,8 @@ fieldset[disabled] .btn-neutral.active {
 }
 
 .checkbox-success input[type="checkbox"]:checked + label::before {
-    background-color: #5cb85c;
-    border-color: #5cb85c;
+    background-color: #f0ad4e;
+    border-color: #f0ad4e;
 }
 
 .checkbox-success input[type="checkbox"]:checked + label::after {
@@ -1525,7 +1525,7 @@ fieldset[disabled] .btn-neutral.active {
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-success,
 .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-success {
     color: #fff;
-    background: #5cb85c;
+    background: #f0ad4e;
 }
 
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-warning,

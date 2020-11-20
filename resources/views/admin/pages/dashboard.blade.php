@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="header">
                         <h4 class="title">Thống kê người dùng</h4>
-                        <p class="category">Mỹ phẩm mỹ hạnh</p>
+                        <p class="category">THỜI TRANG NEM</p>
                     </div>
                     <div class="content">
                         <table style="margin-top: 20px;" class="table table-bordered">
@@ -44,7 +44,7 @@
                 <div class="card">
                     <div class="header">
                         <h4 class="title">Thống kê sản phẩm</h4>
-                        <p class="category">Mỹ phẩm mỹ hạnh</p>
+                        <p class="category">THỜI TRANG NEM</p>
                     </div>
                     <div class="content">
                         <table style="margin-top: 20px;" class="table table-bordered">
@@ -81,7 +81,7 @@
                 <div class="card">
                     <div class="header">
                         <h4 class="title">Thống kê bài viết</h4>
-                        <p class="category">Mỹ phẩm mỹ hạnh</p>
+                        <p class="category">THỜI TRANG NEM</p>
                     </div>
                     <div class="content">
                         <table style="margin-top: 20px;" class="table table-bordered">
@@ -108,7 +108,7 @@
                 <div class="card">
                     <div class="header">
                         <h4 class="title">Thống kê đơn hàng</h4>
-                        <p class="category">Mỹ phẩm mỹ hạnh</p>
+                        <p class="category">THỜI TRANG NEM</p>
                     </div>
                     <div class="content">
                         <table style="margin-top: 20px;" class="table table-bordered">
