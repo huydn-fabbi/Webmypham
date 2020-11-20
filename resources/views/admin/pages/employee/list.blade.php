@@ -31,7 +31,7 @@
                                     <input name="name" style="height: 30px;width: 245px;" class="form-control" id="id">
                                 </div>
                                 <div style="margin-top: 22px;margin-left: 15px;" class="col-md-7">
-                                    <button type="submit" class="btn btn-success">Tìm Kiếm</button>
+                                    <button type="submit" class="btn btn-success" style="background-color: #f0ad4e; border-color: #f0ad4e">Tìm Kiếm</button>
                                 </div>
                                 <div style="margin-top: 22px;margin-left: 110px;" class="col-md-1">
                                     <a href="{{ route('addEmployee') }}" role="button" class="btn btn-warning">Tạo mới</a>
@@ -83,7 +83,7 @@
                                     <input name="name" style="height: 30px;width: 245px;" class="form-control" id="id">
                                 </div>
                                 <div style="margin-top: 22px;margin-left: 15px;" class="col-md-7">
-                                    <button type="submit" class="btn btn-success">Tìm Kiếm</button>
+                                    <button type="submit" class="btn btn-success" style="background-color: #f0ad4e; border-color: #f0ad4e">Tìm Kiếm</button>
                                 </div>
                                 <div style="margin-top: 22px;margin-left: 110px;" class="col-md-1">
                                     <a href="{{ route('addEmployee') }}" role="button" class="btn btn-warning">Tạo mới</a>

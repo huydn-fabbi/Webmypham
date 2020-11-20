@@ -4,13 +4,13 @@
             <ul>
                 <li>
                     <a>
-                        MỸ PHẨM MỸ HẠNH
+                        THỜI TRANG NEM
                     </a>
                 </li>
             </ul>
         </nav>
         <p class="copyright pull-right">
-            &copy; <script>document.write(new Date().getFullYear())</script> <a>Mỹ Hạnh</a>, website bán mỹ phẩm trực tuyến
+            &copy; <script>document.write(new Date().getFullYear())</script> <a>NEM</a>, website bán quần áo trực tuyến
         </p>
     </div>
 </footer>

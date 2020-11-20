@@ -5,7 +5,7 @@
 	<link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.ico') }}">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Trang Quản Trị || Mỹ phẩm Mỹ Hạnh</title>
+	<title>Trang Quản Trị || THỜI TRANG NEM</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -48,7 +48,7 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $('#datepicker').datepicker({ dateFormat: 'yy-mm-dd' });
-    }); 
+    });
 </script>
 </body>
 <!--   Core JS Files   -->
@@ -69,8 +69,8 @@
 
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
     <script src="{{ asset('assets/js/demo.js') }}"></script>
-    
-    
+
+
     <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
     <script> CKEDITOR.replace('editor1'); </script>
     <script> CKEDITOR.replace('editor2'); </script>

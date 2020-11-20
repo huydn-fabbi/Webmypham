@@ -39,7 +39,7 @@
                                     <input name="end_date" type="date" style="height: 30px;width: 200px;" class="form-control" id="id">
                                 </div>
                                 <div style="margin-top: 22px" class="col-md-3">
-                                    <button type="submit" class="btn btn-success">Tìm Kiếm</button>
+                                    <button type="submit" class="btn btn-success" style="background-color: #f0ad4e; border-color: #f0ad4e">Tìm Kiếm</button>
                                 </div>
                                 <div style="margin-top: 22px;margin-left: 150px;" class="col-md-1">
                                     <a href="{{ route('addSale') }}" role="button" class="btn btn-warning">Tạo mới</a>
@@ -101,7 +101,7 @@
                                     <input name="end_date" type="date" style="height: 30px;width: 200px;" class="form-control" id="id">
                                 </div>
                                 <div style="margin-top: 22px" class="col-md-3">
-                                    <button type="submit" class="btn btn-success">Tìm Kiếm</button>
+                                    <button type="submit" class="btn btn-success" style="background-color: #f0ad4e; border-color: #f0ad4e">Tìm Kiếm</button>
                                 </div>
                                 <div style="margin-top: 22px;margin-left: 150px;" class="col-md-1">
                                     <a href="{{ route('addSale') }}" role="button" class="btn btn-warning">Tạo mới</a>

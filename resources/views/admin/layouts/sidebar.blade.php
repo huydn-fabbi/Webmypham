@@ -3,10 +3,10 @@
     <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
 
 
-    	<div class="sidebar-wrapper">
+    	<div class="sidebar-wrapper" style="background-color: #f0ad4e">
             <div class="logo">
                 <a href="http://www.creative-tim.com" class="simple-text">
-                    MỸ HẠNH
+                    <img src="/img/logonem.png" alt="" style="margin-left: -15px ; width: 150px">
                 </a>
             </div>
 

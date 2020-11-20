@@ -55,7 +55,7 @@
       position: absolute;
       top: 20px;
       left: 20px;
-      z-index: 10; 
+      z-index: 10;
 	  background-color: #dc0345;}
 </style>
 <header>
@@ -65,20 +65,22 @@
 					@if (Auth::guest())
 						<div class="plr10 span4 span-t3 m-off">
 							<ul class="choose_lang">
-								<li><a style="font-size: larger;color: green;font-weight: bold;" href="{{ route('login') }}">Đăng Nhập <i class="fa fa-sign-in"></i></a></li>
-								<li><a style="font-size: larger;color: green;font-weight: bold;margin-left: 18px;" href="{{ route('register') }}">Đăng Ký <i class="fa fa-user-plus"></i></a></li>
+								<li><a style="font-size: larger;color: #252525;font-weight: bold;" href="{{ route('login') }}">Đăng Nhập <i class="fa fa-sign-in"></i></a></li>
+								<li><a style="font-size: larger;color: #252525;font-weight: bold;margin-left: 18px;" href="{{ route('register') }}">Đăng Ký <i class="fa fa-user-plus"></i></a></li>
 							</ul>
 						</div>
 					@else
 						<div class="plr10 span4 span-t3 m-off">
 							<ul class="choose_lang">
-								<li><a style="font-size: larger;color: green;font-weight: bold;" href="">{{ Auth::user()->name }}</a></li>
-								<li><a style="font-size: larger;color: green;font-weight: bold;margin-left: 18px;" href="{{ route('logout') }}">Logout <i class="fa fa-sign-out"></i></a></li>
+								<li><a style="font-size: larger;color: #252525;font-weight: bold;" href="">{{ Auth::user()->name }}</a></li>
+								<li><a style="font-size: larger;color: #252525;font-weight: bold;margin-left: 18px;" href="{{ route('logout') }}">Logout <i class="fa fa-sign-out"></i></a></li>
 							</ul>
 						</div>
 					@endif
 					<div class="plr10 span4 span-t6 span-m12">
-						<h1 style="font-size: xx-large;margin-top: 55px;margin-left: 55px;font-weight: bold;color: gray;">MỸ PHẨM MỸ HẠNH</h1>
+                        <ul class="choose_lang">
+                        <img src="/img/logonem.png" alt="" style="margin-left: 118px ; width: 168px">
+                        </ul>
 					</div>
 					@if (Request::url() !== 'http://127.0.0.1:8000/cart/list')
 					<div class="plr10 span4 span-t3 m-off">
@@ -163,20 +165,20 @@
 							<span>1</span>
 						</a>
 					</div>
-				</nav>	
+				</nav>
 				<script>
-				$(".bar>a").click(function(){	
+				$(".bar>a").click(function(){
 				$(".mnav").toggleClass("dropdown");	});
-				$(".hv>a").click(function(event){	event.preventDefault();	
+				$(".hv>a").click(function(event){	event.preventDefault();
 				if($(this).parent().hasClass("dropdown")){	$(this).parent().removeClass("dropdown");
-				$(this).siblings().children().removeClass("dropdown");	}else{	
-				$(this).parent().addClass("dropdown");	$(this).parent().siblings().removeClass("dropdown");	
+				$(this).siblings().children().removeClass("dropdown");	}else{
+				$(this).parent().addClass("dropdown");	$(this).parent().siblings().removeClass("dropdown");
 				$(this).parent().siblings().children().children().removeClass("dropdown");	}	return false;
-				});	$(document).mouseup(function (e){	var container = $('.mnav , .bar');	
-				if (!container.is(e.target) && container.has(e.target).length === 0){	
-				$('.mnav').removeClass('dropdown');	}	
+				});	$(document).mouseup(function (e){	var container = $('.mnav , .bar');
+				if (!container.is(e.target) && container.has(e.target).length === 0){
+				$('.mnav').removeClass('dropdown');	}
 				});
-				</script>				
+				</script>
 			</div>
 			<script>
 			$(window).bind('resize , load',function(){
